@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div *ngIf="!loading" class="container" >
+    <header>
+        <h1 id="title">Agendar Visita</h1>
+        <p class="description">Por favor, completa los campos para crear una Visita.</p>
+    </header>
+    <form (ngSubmit)="crearVisita()">
+      <div class="form-name" style="border: 2px solid rgba(0, 0, 0, 0.678)">
+        <div class="form-name">
+          <label for="cliente">Cliente_id</label>
+          <input type="text" id="cliente" [(ngModel)]="visita.cliente" name="cliente" required class="form-control">
+        </div>
+        <div class="form-name">
+          <label for="fecha">Fecha</label>
+          <input type="datetime-local" id="fecha" [(ngModel)]="visita.fecha" name="fecha" required class="form-control">
+        </div>
+        <div class="form-name">
+          <label for="comentario">Comentario</label>
+          <textarea id="comentario" [(ngModel)]="visita.comentario" name="comentario" class="form-control"></textarea>
+        </div>
+        <div class="form-name">
+          <label for="comentario">Referencia Inmueble</label>
+          <input type="text" id="numeroReferencia" [(ngModel)]="numeroReferencia" name="numeroReferencia" required class="form-control">
+        </div>
+      </div>
+      <input type="hidden" [(ngModel)]="visita.estado" name="estado" [value]="'POR VISITAR'">
+      <div class="form-name" style="  border: 2px solid rgba(4, 0, 248, 0.678);">
+        <button type="submit" class="btn btn-primary btn-lg px-5 mt-3">Agendar Visita</button>
+      </div>
+    </form>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+
+
+
+

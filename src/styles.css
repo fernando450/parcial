@@ -1,1 +1,228 @@
 /* You can add global styles to this file, and also import other style files */
+html,body{
+  height: 100%;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto 0 auto;
+  padding: 20px;
+  background-color: rgba(211, 201, 247, 0.89);
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 0px 13px rgb(10, 9, 9);
+}
+
+
+
+
+/* Estilos para el título */
+
+#title {
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 50px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.466);
+}
+
+/* Estilos para la descripción */
+
+.description {
+  text-align: center;
+  font-weight: 800;
+  font-size: 110%;
+  margin: 5%;
+  margin-bottom: 45px;
+}
+
+.description:last-of-type {
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Estilos para el formulario */
+
+#survey-form {
+  text-align: center;
+  font-size: auto;
+  margin-top: 5%;
+  margin-bottom: auto;
+}
+
+fieldset {
+  margin-bottom: 30px;
+}
+
+.form-name{
+  margin-bottom: 15px;
+  width: 99%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid rgba(250, 235, 215, 0.678);
+  background-color: transparent;
+  border-radius: 0;
+  font-size: 16px;
+  font-family: Nunito, sans-serif;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.form-name label{
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los select */
+
+.form-select-gender {
+  width: 17%;
+  font-size: 16px;
+  font-family: Nunito, sans-serif;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* Estilos para los botones de radio */
+
+.input-radio {
+  font-family: Nunito, sans-serif;
+}
+
+/* Estilos para el área de texto */
+
+.input-textarea {
+  width: 100%;
+  height: 25%;
+  font-size: 16px;
+  text-align: center;
+  font-family: Nunito, sans-serif;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* Estilos para el botón de envío */
+
+.button-submit {
+  display: block;
+  width: 40%;
+  margin: 1em auto;
+  height: 2em;
+  min-width: 300px;
+  font-size: 1.1rem;
+  color: antiquewhite;
+  background-color: #0f052c5b;
+  border-color: rgba(255, 255, 255, 0.63);
+  border-radius: 2%;
+}
+
+.button-submit:hover {
+  background-color: #1d0896a9; /* Color de fondo al pasar el mouse */
+  transform: scale(1.05); /* Escalar un poco el botón al pasar el mouse */
+}
+
+/* Estilos para el footer */
+
+footer {
+  font-family: Nunito, sans-serif;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px 0;
+  background-color: rgba(55, 44, 153, 0);
+  color: rgb(255, 255, 255);
+}
+
+footer p {
+  margin: 0;
+}
+
+
+body {
+  font-family: 'Nunito', sans-serif, Arial, Helvetica;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#fdfdfd, #3824eb) no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.mat-dialog-container {
+  max-height: calc(100vh - 40px); /* 40px es el margen superior e inferior */
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+  font-family: 'Roboto', sans-serif;
+}
+.auth_header{
+  padding: 13vh 1rem calc(11vh + 35px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  background-image: transparent;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  box-shadow: 0 3px 5px rgba(#000, 0.3);
+  border-radius: 30px;
+}
+
+.auth_logo{
+    position: relative;
+    z-index: 18;
+    background: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 7px rgba(#000, 0.15);
+    overflow: hidden;
+  }
+.auth_body{
+  padding-bottom: 2rem;
+}
+.auth_form{
+    min-width: 280px;
+    max-width: 340px;
+    margin: auto;
+    margin-top: -40px;
+    padding: 0 10px;
+    position: relative;
+    z-index: 9;
+}
+
+.auth_form_body{
+  padding: 0.7rem 1.5rem 35px;
+  border-radius: 0.5rem;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(#000, 0.15);
+}
+.auth_form_title{
+  font-size: 1.3rem;
+  text-align: center;
+  /*text-transform: uppercase;*/
+  margin-bottom: 1.2rem;
+}
+.auth_form_actions{
+  text-align: center;
+  padding: 0 2rem;
+  margin-top: -25px;
+  .btn{
+    border-radius: 30px;
+    box-shadow: 0 2px 12px rgba(#3280e4, 0.5);
+  }
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

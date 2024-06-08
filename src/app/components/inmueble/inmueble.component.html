@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<div class="container-sm mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+              <h4 class="card-title">Inmuebles</h4>
+              <p class="card-category">Todos los registros Activos</p>
+            </div>
+            <button type="submit" routerLink="/inmueble/visita" class="btn btn-success">+ Visita</button>
+            <button class="btn btn-primary" routerLink="/inmueble/crear">Crear Inmueble</button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    Referencia
+                  </th>
+                  <th>
+                    Tipo
+                  </th>
+                  <th>
+                    Superficie
+                  </th>
+                  <th>
+                    Precio
+                  </th>
+                  <th>
+                    Estado
+                  </th>
+                  <th>
+                    Propietario
+                  </th>
+                </thead>
+                <tbody *ngFor="let item of listaInmuebles">
+                  <tr>
+                    <td>
+                      {{item.numero_referencia}}
+                    </td>
+                    <td>
+                      {{item.tipo}}
+                    </td>
+                    <td>
+                      {{item.superficie}}m²
+                    </td>
+                    <td class="text-primary">
+                      {{item.precio}}
+                    </td>
+                    <td>
+                      {{item.estado}}
+                    </td>
+                    <td>
+                      {{item.propietario.nombre}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

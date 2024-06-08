@@ -1,0 +1,110 @@
+<app-navbar></app-navbar>
+<div *ngIf="!loading" class="container">
+  <header>
+    <h1 id="title">Formulario de Creación de Inmueble</h1>
+    <p class="description">Por favor, completa los campos para crear un nuevo inmueble.</p>
+  </header>
+  <form id="survey-form" (ngSubmit)="crearInmueble()">
+    <div class="form-name"  style="border: 2px solid rgba(0, 0, 0, 0.678)">
+      <h1>Datos</h1>
+      <div class="form-name">
+          <label id="numeroReferencia-label" for="numeroReferencia">Número de Referencia</label>
+          <input type="text" id="numeroReferencia" placeholder="Ingrese el número de referencia" [(ngModel)]="inmueble.numero_referencia" name="numeroReferencia" required class="form-control">
+      </div>
+      <div class="form-name">
+          <label id="tipo-label" for="tipo">Tipo</label>
+          <input type="text" id="tipo" placeholder="Ingrese el tipo de inmueble" [(ngModel)]="inmueble.tipo" name="tipo" required class="form-control">
+      </div>
+      <div class="form-name">
+          <label id="superficie-label" for="superficie">Superficie</label>
+          <input type="number" id="superficie" placeholder="Superficie en m²" [(ngModel)]="inmueble.superficie" name="superficie" required class="form-control">
+      </div>
+      <div class="form-name">
+          <label for="nuevo">Nuevo</label>
+          <input type="checkbox" id="nuevo" [(ngModel)]="inmueble.nuevo" name="nuevo" class="form-check-input">
+      </div>
+      <div class="form-name">
+          <label id="direccion-label" for="direccion">Dirección</label>
+          <input type="text" id="direccion" placeholder="Ingrese la dirección" [(ngModel)]="inmueble.direccion" name="direccion" required class="form-control">
+      </div>
+      <div class="form-name">
+          <label id="precio-label" for="precio">Precio</label>
+          <input type="number" id="precio" placeholder="Ingrese el precio" [(ngModel)]="inmueble.precio" name="precio" required class="form-control">
+      </div>
+      <div class="form-name">
+          <label id="estado-label" for="estado">Estado</label>
+          <select id="estado" [(ngModel)]="inmueble.estado" name="estado" required class="form-control">
+              <option value="EN VENTA">EN VENTA</option>
+              <option value="ALQUILER">ALQUILER</option>
+          </select>
+      </div>
+    </div>
+    <div class="form-name"  style="border: 2px solid rgba(28, 7, 151, 0.678)">
+      <h3>Propietario</h3>
+      <div class="form-name">
+          <label id="nombrePropietario-label" for="nombrePropietario">Nombre</label>
+          <input type="text" id="nombrePropietario" placeholder="Ingrese el nombre del propietario" [(ngModel)]="inmueble.propietario.nombre" name="nombrePropietario" required class="form-control">
+      </div>
+      <div class="form-name">
+          <label id="correoPropietario-label" for="correoPropietario">Correo</label>
+          <input type="email" id="correoPropietario" placeholder="Ingrese el correo del propietario" [(ngModel)]="inmueble.propietario.correo" name="correoPropietario" required class="form-control">
+      </div>
+      <div class="form-name">
+          <label id="celularPropietario-label" for="celularPropietario">Celular</label>
+          <input type="text" id="celularPropietario" placeholder="Ingrese el celular del propietario" [(ngModel)]="inmueble.propietario.celular_contacto" name="celularPropietario" required class="form-control">
+      </div>
+      <div class="form-name">
+          <label id="telefonoPropietario-label" for="telefonoPropietario">Teléfono</label>
+          <input type="text" id="telefonoPropietario" placeholder="Ingrese el teléfono del propietario" [(ngModel)]="inmueble.propietario.telefono_contacto" name="telefonoPropietario" class="form-control">
+      </div>
+    </div>
+    <div class="form-name"  style="border: 2px solid rgba(0, 66, 248, 0.678)">
+      <h3>Características</h3>
+      <div class="form-name">
+          <label id="numeroHabitaciones-label" for="numeroHabitaciones">Número de Habitaciones</label>
+          <input type="number" id="numeroHabitaciones" placeholder="Número de habitaciones" [(ngModel)]="inmueble.caracteristicas.numero_habitaciones" name="numeroHabitaciones" class="form-control">
+      </div>
+      <div class="form-name">
+          <label id="numeroBaños-label" for="numeroBaños">Número de Baños</label>
+          <input type="number" id="numeroBaños" placeholder="Número de baños" [(ngModel)]="inmueble.caracteristicas.numero_banos" name="numeroBaños" class="form-control">
+      </div>
+      <div class="form-name">
+          <label for="piscina">Piscina</label>
+          <input type="radio" id="piscina" [(ngModel)]="inmueble.caracteristicas.piscina" name="piscina" class="input-radio">
+
+          <label for="acondicionado">Aire Acondicionado</label>
+          <input type="radio" id="acondicionado" [(ngModel)]="inmueble.caracteristicas.acondicionado" name="acondicionado" class="input-radio">
+
+          <label for="parqueadero">Parqueadero</label>
+          <input type="radio" id="parqueadero" [(ngModel)]="inmueble.caracteristicas.parqueadero" name="parqueadero" class="input-radio">
+      </div>
+    </div>
+    <div class="form-name" style="border: 2px solid rgba(190, 0, 248, 0.678)">
+      <h2 class="text-white">Servicios</h2>
+      <div class="form-name">
+        <label for="serviciosGas">Gas</label>
+        <input type="radio" id="serviciosGas" [(ngModel)]="inmueble.caracteristicas.servicios.gas" name="serviciosGas" class="input-radio">
+        <label for="serviciosElectrico">Eléctrico</label>
+        <input type="radio" id="serviciosElectrico" [(ngModel)]="inmueble.caracteristicas.servicios.electrico" name="serviciosElectrico" class="input-radio">
+        <label for="serviciosAcueducto">Acueducto</label>
+        <input type="radio" id="serviciosAcueducto" [(ngModel)]="inmueble.caracteristicas.servicios.acueducto" name="serviciosAcueducto" class="input-radio">
+      </div>
+      <div class="form-name">
+        <label for="otro">Otro</label>
+        <input type="text" id="otro" placeholder="Otro" [(ngModel)]="inmueble.caracteristicas.otro" name="otro" class="form-control">
+      </div>
+      <div class="form-name">
+          <label id="name-label" for="oficina">Oficina</label>
+          <input type="text" id="oficina" placeholder="Ingrese la oficina" [(ngModel)]="inmueble.oficina" name="oficina" required class="form-control">
+      </div>
+    </div>
+
+    <div class="form-name" style="  border: 2px solid rgba(4, 0, 248, 0.678);">
+        <button type="submit" id="submit" class="btn btn-primary btn-lg px-5 btn-block">Crear Inmueble</button>
+    </div>
+
+  </form>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+
+

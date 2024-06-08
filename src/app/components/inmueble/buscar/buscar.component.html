@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<div *ngIf="!loading" class="container">
+  <h2>Buscar Inmueble</h2>
+  <form (ngSubmit)="buscar()">
+    <div class="">
+      <div class="form-group mb-2">
+        <label for="referencia">Número de Referencia</label>
+        <input type="text" id="referencia" [(ngModel)]="referencia" name="referencia" required class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+  </form>
+
+  <div *ngIf="inmueble" class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ inmueble.tipo }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Ref: {{ inmueble.numero_referencia }}</h6>
+
+      <div class="card-section">
+        <p class="card-text">{{ inmueble.direccion }}</p>
+        <p class="card-text"><strong>Superficie:</strong> {{ inmueble.superficie }} m²</p>
+        <p class="card-text"><strong>Precio:</strong> {{ inmueble.precio | currency }}</p>
+        <p class="card-text"><strong>Estado:</strong> {{ inmueble.estado }}</p>
+      </div>
+
+      <div class="card-section">
+        <h6>Propietario</h6>
+        <p class="card-text"><strong>Nombre:</strong> {{ inmueble.propietario.nombre }}</p>
+        <p class="card-text"><strong>Correo:</strong> {{ inmueble.propietario.correo }}</p>
+        <p class="card-text"><strong>Celular:</strong> {{ inmueble.propietario.celular_contacto }}</p>
+        <p class="card-text" *ngIf="inmueble.propietario.telefono_contacto"><strong>Teléfono:</strong> {{ inmueble.propietario.telefono_contacto }}</p>
+      </div>
+
+      <div class="card-section">
+        <h6>Características</h6>
+        <p class="card-text" *ngIf="inmueble.caracteristicas.numero_habitaciones !== undefined"><strong>Habitaciones:</strong> {{ inmueble.caracteristicas.numero_habitaciones }}</p>
+        <p class="card-text" *ngIf="inmueble.caracteristicas.numero_banos !== undefined"><strong>Baños:</strong> {{ inmueble.caracteristicas.numero_banos }}</p>
+        <p class="card-text" *ngIf="inmueble.caracteristicas.piscina !== undefined"><strong>Piscina:</strong> {{ inmueble.caracteristicas.piscina ? 'Sí' : 'No' }}</p>
+        <p class="card-text" *ngIf="inmueble.caracteristicas.acondicionado !== undefined"><strong>Aire Acondicionado:</strong> {{ inmueble.caracteristicas.acondicionado ? 'Sí' : 'No' }}</p>
+        <p class="card-text" *ngIf="inmueble.caracteristicas.parqueadero !== undefined"><strong>Parqueadero:</strong> {{ inmueble.caracteristicas.parqueadero ? 'Sí' : 'No' }}</p>
+      </div>
+
+      <div class="card-section">
+        <h6>Servicios</h6>
+        <p class="card-text"><strong>Gas:</strong> {{ inmueble.caracteristicas.servicios.gas ? 'Sí' : 'No' }}</p>
+        <p class="card-text"><strong>Eléctrico:</strong> {{ inmueble.caracteristicas.servicios.electrico ? 'Sí' : 'No' }}</p>
+        <p class="card-text"><strong>Acueducto:</strong> {{ inmueble.caracteristicas.servicios.acueducto ? 'Sí' : 'No' }}</p>
+        <p class="card-text" *ngIf="inmueble.caracteristicas.otro"><strong>Otro:</strong> {{ inmueble.caracteristicas.otro }}</p>
+      </div>
+
+      <div class="card-section">
+        <h6>Oficina</h6>
+        <p class="card-text">{{ inmueble.oficina }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="mensajeError" class="alert alert-danger mt-3">
+    {{ mensajeError }}
+  </div>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+
