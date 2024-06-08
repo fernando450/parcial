@@ -7,6 +7,6 @@ Parcial en angular https://parcial-angular-a9efa.web.app/
 En node https://api-parcial-uejn.onrender.com
 
 ## Integrantes
-Yury Alejandra Arias Quiroga,<b/>
-Jesus Alberto Pradilla Moreno,<b/>
+Yury Alejandra Arias Quiroga,<br>
+Jesus Alberto Pradilla Moreno,<br>
 Fernando Almeida Rojas,
